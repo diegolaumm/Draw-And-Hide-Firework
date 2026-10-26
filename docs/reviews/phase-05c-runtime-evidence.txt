@@ -1,0 +1,839 @@
+Phase 05C runtime startup evidence; 2026-10-24 Asia/Taipei; HEAD 94458d5e2b93fba29754e37d2824ea7b90744c6f
+Command: GRADLE_USER_HOME=D:\minecraftmod\gradle; JAVA_TOOL_OPTIONS=-Dmixin.debug.export=true -Dmixin.debug.export.filter=net.minecraft.client.particle.Particle; .\gradlew.bat runClient --no-daemon
+Stopped by operator Ctrl+C (exit 1); not a successful normal shutdown or world test.
+--- Startup log excerpts ---
+[22:07:46] [main/INFO] (FabricLoader/GameProvider) Loading Minecraft 26.3 with Fabric Loader 0.19.5
+[22:07:46] [main/INFO] (FabricLoader/Mixin) SpongePowered MIXIN Subsystem Version=0.8.7 Source=file:/D:/minecraftmod/gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.17.4+mixin.0.8.7/5f66cc9f59b8efaa942155a3d5a30599bf6640dd/sponge-mixin-0.17.4+mixin.0.8.7.jar Service=Knot/Fabric Env=CLIENT
+[22:07:58] [Render thread/INFO] (drawfirework) Initializing Draw & Hide Firework: drawfirework for Minecraft 26.3...
+[22:08:05] [Render thread/INFO] (Minecraft) OpenAL initialized on device OpenAL Soft on Speaker (Realtek(R) Audio)
+[22:08:05] [Render thread/INFO] (Minecraft) Sound engine started
+[22:08:05] [Render thread/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/particles.png-atlas
+[22:08:05] [Render thread/INFO] (Minecraft) Created: 256x128x0 minecraft:textures/atlas/celestials.png-atlas
+[22:08:05] [Render thread/INFO] (Minecraft) Created: 128x128x0 minecraft:textures/atlas/decorated_pot.png-atlas
+[22:08:05] [Render thread/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/paintings.png-atlas
+[22:08:05] [Render thread/INFO] (Minecraft) Created: 1024x512x0 minecraft:textures/atlas/shield_patterns.png-atlas
+[22:08:05] [Render thread/INFO] (Minecraft) Created: 1024x512x0 minecraft:textures/atlas/banner_patterns.png-atlas
+[22:08:05] [Render thread/INFO] (Minecraft) Created: 2048x2048x4 minecraft:textures/atlas/blocks.png-atlas
+[22:08:06] [Render thread/INFO] (Minecraft) Created: 1024x512x0 minecraft:textures/atlas/items.png-atlas
+[22:08:06] [Render thread/INFO] (Minecraft) Created: 1024x1024x0 minecraft:textures/atlas/gui.png-atlas
+[22:08:07] [Render thread/INFO] (Minecraft) Created: 128x64x0 minecraft:textures/atlas/map_decorations.png-atlas
+[22:08:07] [Render thread/INFO] (Minecraft) Created: 512x512x0 minecraft:textures/atlas/chest.png-atlas
+[22:08:07] [Render thread/INFO] (Minecraft) Created: 512x512x0 minecraft:textures/atlas/shulker_boxes.png-atlas
+--- Exported Particle SHA256 ---
+F157407D9FD36242F40F9F593C0F4F415CFD7898F5BAB9375FB50345C37DD713
+--- Exported Particle javap -p -c ---
+Compiled from "Particle.java"
+public abstract class net.minecraft.client.particle.Particle implements com.drawfirework.client.GlowingParticleAccess {
+  private static final net.minecraft.world.phys.AABB INITIAL_AABB;
+
+  private static final double MAXIMUM_COLLISION_VELOCITY_SQUARED;
+
+  protected final net.minecraft.client.multiplayer.ClientLevel level;
+
+  protected double xo;
+
+  protected double yo;
+
+  protected double zo;
+
+  protected double x;
+
+  protected double y;
+
+  protected double z;
+
+  protected double xd;
+
+  protected double yd;
+
+  protected double zd;
+
+  private net.minecraft.world.phys.AABB bb;
+
+  protected boolean onGround;
+
+  protected boolean hasPhysics;
+
+  private boolean stoppedByCollision;
+
+  protected boolean removed;
+
+  protected float bbWidth;
+
+  protected float bbHeight;
+
+  protected final net.minecraft.util.RandomSource random;
+
+  protected int age;
+
+  protected int lifetime;
+
+  protected float gravity;
+
+  protected float friction;
+
+  protected boolean speedUpWhenYMotionIsBlocked;
+
+  private boolean drawfirework$fullbright;
+
+  protected net.minecraft.client.particle.Particle(net.minecraft.client.multiplayer.ClientLevel, double, double, double);
+    Code:
+         0: aload_0
+         1: invokespecial #66                 // Method java/lang/Object."<init>":()V
+         4: aload_0
+         5: getstatic     #68                 // Field INITIAL_AABB:Lnet/minecraft/world/phys/AABB;
+         8: putfield      #70                 // Field bb:Lnet/minecraft/world/phys/AABB;
+        11: aload_0
+        12: iconst_1
+        13: putfield      #72                 // Field hasPhysics:Z
+        16: aload_0
+        17: ldc           #73                 // float 0.6f
+        19: putfield      #75                 // Field bbWidth:F
+        22: aload_0
+        23: ldc           #76                 // float 1.8f
+        25: putfield      #78                 // Field bbHeight:F
+        28: aload_0
+        29: invokestatic  #84                 // InterfaceMethod net/minecraft/util/RandomSource.create:()Lnet/minecraft/util/RandomSource;
+        32: putfield      #86                 // Field random:Lnet/minecraft/util/RandomSource;
+        35: aload_0
+        36: ldc           #87                 // float 0.98f
+        38: putfield      #89                 // Field friction:F
+        41: aload_0
+        42: iconst_0
+        43: putfield      #91                 // Field speedUpWhenYMotionIsBlocked:Z
+        46: aload_0
+        47: aload_1
+        48: putfield      #93                 // Field level:Lnet/minecraft/client/multiplayer/ClientLevel;
+        51: aload_0
+        52: ldc           #94                 // float 0.2f
+        54: ldc           #94                 // float 0.2f
+        56: invokevirtual #98                 // Method setSize:(FF)V
+        59: aload_0
+        60: dload_2
+        61: dload         4
+        63: dload         6
+        65: invokevirtual #102                // Method setPos:(DDD)V
+        68: aload_0
+        69: dload_2
+        70: putfield      #104                // Field xo:D
+        73: aload_0
+        74: dload         4
+        76: putfield      #106                // Field yo:D
+        79: aload_0
+        80: dload         6
+        82: putfield      #108                // Field zo:D
+        85: aload_0
+        86: ldc           #109                // float 4.0f
+        88: aload_0
+        89: getfield      #86                 // Field random:Lnet/minecraft/util/RandomSource;
+        92: invokeinterface #113,  1          // InterfaceMethod net/minecraft/util/RandomSource.nextFloat:()F
+        97: ldc           #114                // float 0.9f
+        99: fmul
+       100: ldc           #115                // float 0.1f
+       102: fadd
+       103: fdiv
+       104: f2i
+       105: putfield      #117                // Field lifetime:I
+       108: return
+
+  public net.minecraft.client.particle.Particle(net.minecraft.client.multiplayer.ClientLevel, double, double, double, double, double, double);
+    Code:
+         0: aload_0
+         1: aload_1
+         2: dload_2
+         3: dload         4
+         5: dload         6
+         7: invokespecial #125                // Method "<init>":(Lnet/minecraft/client/multiplayer/ClientLevel;DDD)V
+        10: aload_0
+        11: dload         8
+        13: aload_0
+        14: getfield      #86                 // Field random:Lnet/minecraft/util/RandomSource;
+        17: invokeinterface #113,  1          // InterfaceMethod net/minecraft/util/RandomSource.nextFloat:()F
+        22: fconst_2
+        23: fmul
+        24: fconst_1
+        25: fsub
+        26: ldc           #126                // float 0.4f
+        28: fmul
+        29: f2d
+        30: dadd
+        31: putfield      #128                // Field xd:D
+        34: aload_0
+        35: dload         10
+        37: aload_0
+        38: getfield      #86                 // Field random:Lnet/minecraft/util/RandomSource;
+        41: invokeinterface #113,  1          // InterfaceMethod net/minecraft/util/RandomSource.nextFloat:()F
+        46: fconst_2
+        47: fmul
+        48: fconst_1
+        49: fsub
+        50: ldc           #126                // float 0.4f
+        52: fmul
+        53: f2d
+        54: dadd
+        55: putfield      #130                // Field yd:D
+        58: aload_0
+        59: dload         12
+        61: aload_0
+        62: getfield      #86                 // Field random:Lnet/minecraft/util/RandomSource;
+        65: invokeinterface #113,  1          // InterfaceMethod net/minecraft/util/RandomSource.nextFloat:()F
+        70: fconst_2
+        71: fmul
+        72: fconst_1
+        73: fsub
+        74: ldc           #126                // float 0.4f
+        76: fmul
+        77: f2d
+        78: dadd
+        79: putfield      #132                // Field zd:D
+        82: aload_0
+        83: getfield      #86                 // Field random:Lnet/minecraft/util/RandomSource;
+        86: invokeinterface #113,  1          // InterfaceMethod net/minecraft/util/RandomSource.nextFloat:()F
+        91: aload_0
+        92: getfield      #86                 // Field random:Lnet/minecraft/util/RandomSource;
+        95: invokeinterface #113,  1          // InterfaceMethod net/minecraft/util/RandomSource.nextFloat:()F
+       100: fadd
+       101: fconst_1
+       102: fadd
+       103: ldc           #133                // float 0.15f
+       105: fmul
+       106: f2d
+       107: dstore        14
+       109: aload_0
+       110: getfield      #128                // Field xd:D
+       113: aload_0
+       114: getfield      #128                // Field xd:D
+       117: dmul
+       118: aload_0
+       119: getfield      #130                // Field yd:D
+       122: aload_0
+       123: getfield      #130                // Field yd:D
+       126: dmul
+       127: dadd
+       128: aload_0
+       129: getfield      #132                // Field zd:D
+       132: aload_0
+       133: getfield      #132                // Field zd:D
+       136: dmul
+       137: dadd
+       138: invokestatic  #139                // Method java/lang/Math.sqrt:(D)D
+       141: dstore        16
+       143: aload_0
+       144: aload_0
+       145: getfield      #128                // Field xd:D
+       148: dload         16
+       150: ddiv
+       151: dload         14
+       153: dmul
+       154: ldc2_w        #140                // double 0.4000000059604645d
+       157: dmul
+       158: putfield      #128                // Field xd:D
+       161: aload_0
+       162: aload_0
+       163: getfield      #130                // Field yd:D
+       166: dload         16
+       168: ddiv
+       169: dload         14
+       171: dmul
+       172: ldc2_w        #140                // double 0.4000000059604645d
+       175: dmul
+       176: ldc2_w        #142                // double 0.10000000149011612d
+       179: dadd
+       180: putfield      #130                // Field yd:D
+       183: aload_0
+       184: aload_0
+       185: getfield      #132                // Field zd:D
+       188: dload         16
+       190: ddiv
+       191: dload         14
+       193: dmul
+       194: ldc2_w        #140                // double 0.4000000059604645d
+       197: dmul
+       198: putfield      #132                // Field zd:D
+       201: return
+
+  public net.minecraft.client.particle.Particle setPower(float);
+    Code:
+         0: aload_0
+         1: dup
+         2: getfield      #128                // Field xd:D
+         5: fload_1
+         6: f2d
+         7: dmul
+         8: putfield      #128                // Field xd:D
+        11: aload_0
+        12: aload_0
+        13: getfield      #130                // Field yd:D
+        16: ldc2_w        #142                // double 0.10000000149011612d
+        19: dsub
+        20: fload_1
+        21: f2d
+        22: dmul
+        23: ldc2_w        #142                // double 0.10000000149011612d
+        26: dadd
+        27: putfield      #130                // Field yd:D
+        30: aload_0
+        31: dup
+        32: getfield      #132                // Field zd:D
+        35: fload_1
+        36: f2d
+        37: dmul
+        38: putfield      #132                // Field zd:D
+        41: aload_0
+        42: areturn
+
+  public void setParticleSpeed(double, double, double);
+    Code:
+         0: aload_0
+         1: dload_1
+         2: putfield      #128                // Field xd:D
+         5: aload_0
+         6: dload_3
+         7: putfield      #130                // Field yd:D
+        10: aload_0
+        11: dload         5
+        13: putfield      #132                // Field zd:D
+        16: return
+
+  public net.minecraft.client.particle.Particle scale(float);
+    Code:
+         0: aload_0
+         1: ldc           #94                 // float 0.2f
+         3: fload_1
+         4: fmul
+         5: ldc           #94                 // float 0.2f
+         7: fload_1
+         8: fmul
+         9: invokevirtual #98                 // Method setSize:(FF)V
+        12: aload_0
+        13: areturn
+
+  public void setLifetime(int);
+    Code:
+         0: aload_0
+         1: iload_1
+         2: putfield      #117                // Field lifetime:I
+         5: return
+
+  public int getLifetime();
+    Code:
+         0: aload_0
+         1: getfield      #117                // Field lifetime:I
+         4: ireturn
+
+  public void tick();
+    Code:
+         0: aload_0
+         1: aload_0
+         2: getfield      #157                // Field x:D
+         5: putfield      #104                // Field xo:D
+         8: aload_0
+         9: aload_0
+        10: getfield      #159                // Field y:D
+        13: putfield      #106                // Field yo:D
+        16: aload_0
+        17: aload_0
+        18: getfield      #161                // Field z:D
+        21: putfield      #108                // Field zo:D
+        24: aload_0
+        25: dup
+        26: getfield      #163                // Field age:I
+        29: dup_x1
+        30: iconst_1
+        31: iadd
+        32: putfield      #163                // Field age:I
+        35: aload_0
+        36: getfield      #117                // Field lifetime:I
+        39: if_icmplt     47
+        42: aload_0
+        43: invokevirtual #166                // Method remove:()V
+        46: return
+        47: aload_0
+        48: dup
+        49: getfield      #130                // Field yd:D
+        52: ldc2_w        #167                // double 0.04d
+        55: aload_0
+        56: getfield      #170                // Field gravity:F
+        59: f2d
+        60: dmul
+        61: dsub
+        62: putfield      #130                // Field yd:D
+        65: aload_0
+        66: aload_0
+        67: getfield      #128                // Field xd:D
+        70: aload_0
+        71: getfield      #130                // Field yd:D
+        74: aload_0
+        75: getfield      #132                // Field zd:D
+        78: invokevirtual #173                // Method move:(DDD)V
+        81: aload_0
+        82: getfield      #91                 // Field speedUpWhenYMotionIsBlocked:Z
+        85: ifeq          124
+        88: aload_0
+        89: getfield      #159                // Field y:D
+        92: aload_0
+        93: getfield      #106                // Field yo:D
+        96: dcmpl
+        97: ifne          124
+       100: aload_0
+       101: dup
+       102: getfield      #128                // Field xd:D
+       105: ldc2_w        #174                // double 1.1d
+       108: dmul
+       109: putfield      #128                // Field xd:D
+       112: aload_0
+       113: dup
+       114: getfield      #132                // Field zd:D
+       117: ldc2_w        #174                // double 1.1d
+       120: dmul
+       121: putfield      #132                // Field zd:D
+       124: aload_0
+       125: dup
+       126: getfield      #128                // Field xd:D
+       129: aload_0
+       130: getfield      #89                 // Field friction:F
+       133: f2d
+       134: dmul
+       135: putfield      #128                // Field xd:D
+       138: aload_0
+       139: dup
+       140: getfield      #130                // Field yd:D
+       143: aload_0
+       144: getfield      #89                 // Field friction:F
+       147: f2d
+       148: dmul
+       149: putfield      #130                // Field yd:D
+       152: aload_0
+       153: dup
+       154: getfield      #132                // Field zd:D
+       157: aload_0
+       158: getfield      #89                 // Field friction:F
+       161: f2d
+       162: dmul
+       163: putfield      #132                // Field zd:D
+       166: aload_0
+       167: getfield      #177                // Field onGround:Z
+       170: ifeq          197
+       173: aload_0
+       174: dup
+       175: getfield      #128                // Field xd:D
+       178: ldc2_w        #178                // double 0.699999988079071d
+       181: dmul
+       182: putfield      #128                // Field xd:D
+       185: aload_0
+       186: dup
+       187: getfield      #132                // Field zd:D
+       190: ldc2_w        #178                // double 0.699999988079071d
+       193: dmul
+       194: putfield      #132                // Field zd:D
+       197: return
+
+  public abstract net.minecraft.client.particle.ParticleRenderType getGroup();
+
+  public java.lang.String toString();
+    Code:
+         0: aload_0
+         1: invokevirtual #187                // Method java/lang/Object.getClass:()Ljava/lang/Class;
+         4: invokevirtual #192                // Method java/lang/Class.getSimpleName:()Ljava/lang/String;
+         7: aload_0
+         8: getfield      #157                // Field x:D
+        11: aload_0
+        12: getfield      #159                // Field y:D
+        15: aload_0
+        16: getfield      #161                // Field z:D
+        19: aload_0
+        20: getfield      #163                // Field age:I
+        23: invokedynamic #204,  0            // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;DDDI)Ljava/lang/String;
+        28: areturn
+
+  public void remove();
+    Code:
+         0: aload_0
+         1: iconst_1
+         2: putfield      #206                // Field removed:Z
+         5: return
+
+  protected void setSize(float, float);
+    Code:
+         0: fload_1
+         1: aload_0
+         2: getfield      #75                 // Field bbWidth:F
+         5: fcmpl
+         6: ifne          18
+         9: fload_2
+        10: aload_0
+        11: getfield      #78                 // Field bbHeight:F
+        14: fcmpl
+        15: ifeq          114
+        18: aload_0
+        19: fload_1
+        20: putfield      #75                 // Field bbWidth:F
+        23: aload_0
+        24: fload_2
+        25: putfield      #78                 // Field bbHeight:F
+        28: aload_0
+        29: invokevirtual #212                // Method getBoundingBox:()Lnet/minecraft/world/phys/AABB;
+        32: astore_3
+        33: aload_3
+        34: getfield      #217                // Field net/minecraft/world/phys/AABB.minX:D
+        37: aload_3
+        38: getfield      #220                // Field net/minecraft/world/phys/AABB.maxX:D
+        41: dadd
+        42: fload_1
+        43: f2d
+        44: dsub
+        45: ldc2_w        #221                // double 2.0d
+        48: ddiv
+        49: dstore        4
+        51: aload_3
+        52: getfield      #225                // Field net/minecraft/world/phys/AABB.minZ:D
+        55: aload_3
+        56: getfield      #228                // Field net/minecraft/world/phys/AABB.maxZ:D
+        59: dadd
+        60: fload_1
+        61: f2d
+        62: dsub
+        63: ldc2_w        #221                // double 2.0d
+        66: ddiv
+        67: dstore        6
+        69: aload_0
+        70: new           #214                // class net/minecraft/world/phys/AABB
+        73: dup
+        74: dload         4
+        76: aload_3
+        77: getfield      #231                // Field net/minecraft/world/phys/AABB.minY:D
+        80: dload         6
+        82: dload         4
+        84: aload_0
+        85: getfield      #75                 // Field bbWidth:F
+        88: f2d
+        89: dadd
+        90: aload_3
+        91: getfield      #231                // Field net/minecraft/world/phys/AABB.minY:D
+        94: aload_0
+        95: getfield      #78                 // Field bbHeight:F
+        98: f2d
+        99: dadd
+       100: dload         6
+       102: aload_0
+       103: getfield      #75                 // Field bbWidth:F
+       106: f2d
+       107: dadd
+       108: invokespecial #234                // Method net/minecraft/world/phys/AABB."<init>":(DDDDDD)V
+       111: invokevirtual #238                // Method setBoundingBox:(Lnet/minecraft/world/phys/AABB;)V
+       114: return
+
+  public void setPos(double, double, double);
+    Code:
+         0: aload_0
+         1: dload_1
+         2: putfield      #157                // Field x:D
+         5: aload_0
+         6: dload_3
+         7: putfield      #159                // Field y:D
+        10: aload_0
+        11: dload         5
+        13: putfield      #161                // Field z:D
+        16: aload_0
+        17: getfield      #75                 // Field bbWidth:F
+        20: fconst_2
+        21: fdiv
+        22: fstore        7
+        24: aload_0
+        25: getfield      #78                 // Field bbHeight:F
+        28: fstore        8
+        30: aload_0
+        31: new           #214                // class net/minecraft/world/phys/AABB
+        34: dup
+        35: dload_1
+        36: fload         7
+        38: f2d
+        39: dsub
+        40: dload_3
+        41: dload         5
+        43: fload         7
+        45: f2d
+        46: dsub
+        47: dload_1
+        48: fload         7
+        50: f2d
+        51: dadd
+        52: dload_3
+        53: fload         8
+        55: f2d
+        56: dadd
+        57: dload         5
+        59: fload         7
+        61: f2d
+        62: dadd
+        63: invokespecial #234                // Method net/minecraft/world/phys/AABB."<init>":(DDDDDD)V
+        66: invokevirtual #238                // Method setBoundingBox:(Lnet/minecraft/world/phys/AABB;)V
+        69: return
+
+  public void move(double, double, double);
+    Code:
+         0: aload_0
+         1: getfield      #243                // Field stoppedByCollision:Z
+         4: ifeq          8
+         7: return
+         8: dload_1
+         9: dstore        7
+        11: dload_3
+        12: dstore        9
+        14: dload         5
+        16: dstore        11
+        18: aload_0
+        19: getfield      #72                 // Field hasPhysics:Z
+        22: ifeq          117
+        25: dload_1
+        26: dconst_0
+        27: dcmpl
+        28: ifne          44
+        31: dload_3
+        32: dconst_0
+        33: dcmpl
+        34: ifne          44
+        37: dload         5
+        39: dconst_0
+        40: dcmpl
+        41: ifeq          117
+        44: dload_1
+        45: dload_1
+        46: dmul
+        47: dload_3
+        48: dload_3
+        49: dmul
+        50: dadd
+        51: dload         5
+        53: dload         5
+        55: dmul
+        56: dadd
+        57: getstatic     #245                // Field MAXIMUM_COLLISION_VELOCITY_SQUARED:D
+        60: dcmpg
+        61: ifge          117
+        64: aload_0
+        65: getfield      #159                // Field y:D
+        68: invokestatic  #251                // InterfaceMethod net/minecraft/world/phys/shapes/CollisionContext.positionContext:(D)Lnet/minecraft/world/phys/shapes/CollisionContext;
+        71: new           #253                // class net/minecraft/world/phys/Vec3
+        74: dup
+        75: dload_1
+        76: dload_3
+        77: dload         5
+        79: invokespecial #255                // Method net/minecraft/world/phys/Vec3."<init>":(DDD)V
+        82: aload_0
+        83: invokevirtual #212                // Method getBoundingBox:()Lnet/minecraft/world/phys/AABB;
+        86: aload_0
+        87: getfield      #93                 // Field level:Lnet/minecraft/client/multiplayer/ClientLevel;
+        90: invokestatic  #261                // InterfaceMethod java/util/List.of:()Ljava/util/List;
+        93: invokestatic  #267                // Method net/minecraft/world/entity/Entity.collideBoundingBox:(Lnet/minecraft/world/phys/shapes/CollisionContext;Lnet/minecraft/world/phys/Vec3;Lnet/minecraft/world/phys/AABB;Lnet/minecraft/world/level/Level;Ljava/util/List;)Lnet/minecraft/world/phys/Vec3;
+        96: astore        13
+        98: aload         13
+       100: getfield      #268                // Field net/minecraft/world/phys/Vec3.x:D
+       103: dstore_1
+       104: aload         13
+       106: getfield      #269                // Field net/minecraft/world/phys/Vec3.y:D
+       109: dstore_3
+       110: aload         13
+       112: getfield      #270                // Field net/minecraft/world/phys/Vec3.z:D
+       115: dstore        5
+       117: dload_1
+       118: dconst_0
+       119: dcmpl
+       120: ifne          136
+       123: dload_3
+       124: dconst_0
+       125: dcmpl
+       126: ifne          136
+       129: dload         5
+       131: dconst_0
+       132: dcmpl
+       133: ifeq          155
+       136: aload_0
+       137: aload_0
+       138: invokevirtual #212                // Method getBoundingBox:()Lnet/minecraft/world/phys/AABB;
+       141: dload_1
+       142: dload_3
+       143: dload         5
+       145: invokevirtual #273                // Method net/minecraft/world/phys/AABB.move:(DDD)Lnet/minecraft/world/phys/AABB;
+       148: invokevirtual #238                // Method setBoundingBox:(Lnet/minecraft/world/phys/AABB;)V
+       151: aload_0
+       152: invokevirtual #276                // Method setLocationFromBoundingbox:()V
+       155: dload         9
+       157: invokestatic  #279                // Method java/lang/Math.abs:(D)D
+       160: ldc2_w        #280                // double 9.999999747378752E-6d
+       163: dcmpl
+       164: iflt          183
+       167: dload_3
+       168: invokestatic  #279                // Method java/lang/Math.abs:(D)D
+       171: ldc2_w        #280                // double 9.999999747378752E-6d
+       174: dcmpg
+       175: ifge          183
+       178: aload_0
+       179: iconst_1
+       180: putfield      #243                // Field stoppedByCollision:Z
+       183: aload_0
+       184: dload         9
+       186: dload_3
+       187: dcmpl
+       188: ifeq          202
+       191: dload         9
+       193: dconst_0
+       194: dcmpg
+       195: ifge          202
+       198: iconst_1
+       199: goto          203
+       202: iconst_0
+       203: putfield      #177                // Field onGround:Z
+       206: dload         7
+       208: dload_1
+       209: dcmpl
+       210: ifeq          218
+       213: aload_0
+       214: dconst_0
+       215: putfield      #128                // Field xd:D
+       218: dload         11
+       220: dload         5
+       222: dcmpl
+       223: ifeq          231
+       226: aload_0
+       227: dconst_0
+       228: putfield      #132                // Field zd:D
+       231: return
+
+  protected void setLocationFromBoundingbox();
+    Code:
+         0: aload_0
+         1: invokevirtual #212                // Method getBoundingBox:()Lnet/minecraft/world/phys/AABB;
+         4: astore_1
+         5: aload_0
+         6: aload_1
+         7: getfield      #217                // Field net/minecraft/world/phys/AABB.minX:D
+        10: aload_1
+        11: getfield      #220                // Field net/minecraft/world/phys/AABB.maxX:D
+        14: dadd
+        15: ldc2_w        #221                // double 2.0d
+        18: ddiv
+        19: putfield      #157                // Field x:D
+        22: aload_0
+        23: aload_1
+        24: getfield      #231                // Field net/minecraft/world/phys/AABB.minY:D
+        27: putfield      #159                // Field y:D
+        30: aload_0
+        31: aload_1
+        32: getfield      #225                // Field net/minecraft/world/phys/AABB.minZ:D
+        35: aload_1
+        36: getfield      #228                // Field net/minecraft/world/phys/AABB.maxZ:D
+        39: dadd
+        40: ldc2_w        #221                // double 2.0d
+        43: ddiv
+        44: putfield      #161                // Field z:D
+        47: return
+
+  protected int getLightCoords(float);
+    Code:
+         0: new           #291                // class org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable
+         3: dup
+         4: ldc_w         #292                // String getLightCoords
+         7: iconst_1
+         8: invokespecial #295                // Method org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable."<init>":(Ljava/lang/String;Z)V
+        11: astore_3
+        12: aload_0
+        13: fload_1
+        14: aload_3
+        15: invokevirtual #299                // Method handler$zfh000$drawfirework$overrideLightCoords:(FLorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V
+        18: aload_3
+        19: invokevirtual #303                // Method org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable.isCancelled:()Z
+        22: ifeq          30
+        25: aload_3
+        26: invokevirtual #306                // Method org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable.getReturnValueI:()I
+        29: ireturn
+        30: aload_0
+        31: getfield      #157                // Field x:D
+        34: aload_0
+        35: getfield      #159                // Field y:D
+        38: aload_0
+        39: getfield      #161                // Field z:D
+        42: invokestatic  #312                // Method net/minecraft/core/BlockPos.containing:(DDD)Lnet/minecraft/core/BlockPos;
+        45: astore_2
+        46: aload_0
+        47: getfield      #93                 // Field level:Lnet/minecraft/client/multiplayer/ClientLevel;
+        50: aload_2
+        51: invokevirtual #318                // Method net/minecraft/client/multiplayer/ClientLevel.hasChunkAt:(Lnet/minecraft/core/BlockPos;)Z
+        54: ifeq          66
+        57: aload_0
+        58: getfield      #93                 // Field level:Lnet/minecraft/client/multiplayer/ClientLevel;
+        61: aload_2
+        62: invokestatic  #323                // Method net/minecraft/util/LightCoordsUtil.getLightCoords:(Lnet/minecraft/world/level/BlockAndLightGetter;Lnet/minecraft/core/BlockPos;)I
+        65: ireturn
+        66: ldc_w         #324                // int 15728640
+        69: ireturn
+
+  public boolean isAlive();
+    Code:
+         0: aload_0
+         1: getfield      #206                // Field removed:Z
+         4: ifne          11
+         7: iconst_1
+         8: goto          12
+        11: iconst_0
+        12: ireturn
+
+  public net.minecraft.world.phys.AABB getBoundingBox();
+    Code:
+         0: aload_0
+         1: getfield      #70                 // Field bb:Lnet/minecraft/world/phys/AABB;
+         4: areturn
+
+  public void setBoundingBox(net.minecraft.world.phys.AABB);
+    Code:
+         0: aload_0
+         1: aload_1
+         2: putfield      #70                 // Field bb:Lnet/minecraft/world/phys/AABB;
+         5: return
+
+  public java.util.Optional<net.minecraft.core.particles.ParticleLimit> getParticleLimit();
+    Code:
+         0: invokestatic  #337                // Method java/util/Optional.empty:()Ljava/util/Optional;
+         3: areturn
+
+  static {};
+    Code:
+         0: new           #214                // class net/minecraft/world/phys/AABB
+         3: dup
+         4: dconst_0
+         5: dconst_0
+         6: dconst_0
+         7: dconst_0
+         8: dconst_0
+         9: dconst_0
+        10: invokespecial #234                // Method net/minecraft/world/phys/AABB."<init>":(DDDDDD)V
+        13: putstatic     #68                 // Field INITIAL_AABB:Lnet/minecraft/world/phys/AABB;
+        16: ldc2_w        #339                // double 100.0d
+        19: invokestatic  #345                // Method net/minecraft/util/Mth.square:(D)D
+        22: putstatic     #245                // Field MAXIMUM_COLLISION_VELOCITY_SQUARED:D
+        25: return
+
+  public void drawfirework$setFullbright(boolean);
+    Code:
+         0: aload_0
+         1: iload_1
+         2: putfield      #349                // Field drawfirework$fullbright:Z
+         5: return
+
+  public boolean drawfirework$isFullbright();
+    Code:
+         0: aload_0
+         1: getfield      #349                // Field drawfirework$fullbright:Z
+         4: ireturn
+
+  private void handler$zfh000$drawfirework$overrideLightCoords(float, org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable);
+    Code:
+         0: aload_0
+         1: getfield      #349                // Field drawfirework$fullbright:Z
+         4: ifeq          17
+         7: aload_2
+         8: ldc_w         #352                // int 15728880
+        11: invokestatic  #358                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+        14: invokevirtual #362                // Method org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable.setReturnValue:(Ljava/lang/Object;)V
+        17: return
+}

@@ -1,0 +1,11 @@
+{
+  "required": true,
+  "package": "com.drawfirework.client.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "client": [
+    "ParticleMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

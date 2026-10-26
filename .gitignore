@@ -1,0 +1,42 @@
+.gradle/
+build/
+bin/
+out/
+.idea/
+*.iml
+*.ipr
+*.iws
+.project
+.classpath
+.settings/
+.vscode/
+run/
+run-server/
+run-client/
+hs_err_pid*
+replay_pid*
+
+# GRADLE_USER_HOME currently shares gradle/ with the checked-in Wrapper.
+/gradle/*
+!/gradle/wrapper/
+/gradle/wrapper/*
+!/gradle/wrapper/gradle-wrapper.jar
+!/gradle/wrapper/gradle-wrapper.properties
+*.log
+*.tmp
+*.swp
+*~
+
+# Player artwork, including backups and legacy draft storage in any game instance.
+**/drawfirework/drafts/
+
+# Local game data and credentials are not source artifacts.
+/logs/
+/saves/
+/screenshots/
+/mods/
+.env
+.env.*
+*.p12
+*.pfx
+*.jks
